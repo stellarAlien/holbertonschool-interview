@@ -1,8 +1,18 @@
 #!/usr/bin/python3
 from typing import List
-
+    """
+    module that contains nut and bolts solution
+    """
 
 def canUnlockAll(boxes):
+    """_summary_
+
+    Args:
+        boxes (_type_): list of lists to check
+
+    Returns:
+        _type_: _description_
+    """
     if (len(boxes) == 0 or boxes is None):
         return False
     unlocked = []
