@@ -1,15 +1,13 @@
 #!/usr/bin/python3
+"""
+module that contains nut and bolts solution
+"""
 from typing import List
-    """
-    module that contains nut and bolts solution
-    """
 
 def canUnlockAll(boxes):
     """_summary_
-
     Args:
         boxes (_type_): list of lists to check
-
     Returns:
         _type_: _description_
     """
@@ -22,6 +20,6 @@ def canUnlockAll(boxes):
                 continue
             elif(boxes[i] and not(i in unlocked)):
                 unlocked.append(i)
-    if ( len(boxes) - 1) == len(unlocked)):
+    if ( len(boxes) - 1 == len(unlocked)):
         return False
     return True
