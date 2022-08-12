@@ -22,9 +22,14 @@ listint_t *insert_node(listint_t **head, int number)
         free(node);
         return(NULL);
     }
-    if(head == NULL || *head == NULL ||!number)
+    if(head == NULL ||!number)
     {
         return NULL;
+    }
+    if(*head == NULL )
+    {
+        *head = node;
+        return(*head);
     }
     p = *head;
     if(p->n > number)
