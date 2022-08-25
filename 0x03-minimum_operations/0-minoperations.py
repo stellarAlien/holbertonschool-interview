@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+
 """
 Minimum Operations Module
+dybamic programming problem
 """
 
 
