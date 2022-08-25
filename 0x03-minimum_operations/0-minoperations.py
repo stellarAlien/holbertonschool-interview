@@ -3,6 +3,7 @@
 Minimum Operations Module
 """
 
+
 def minOperations(n):
     """minimium operations of copyAll and paste to constuct H*n string"""
     if n < 2:
