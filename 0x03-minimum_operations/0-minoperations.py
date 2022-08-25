@@ -3,9 +3,8 @@
 Minimum Operations Module
 """
 
-
 def minOperations(n):
-    '''minimium operations of copyAll and paste to constuct H*n string'''
+    """minimium operations of copyAll and paste to constuct H*n string"""
     if n < 2:
         return 0
     div, ops_count =  2, 0
@@ -16,4 +15,3 @@ def minOperations(n):
         else:
             div += 1
     return ops_count
-    
