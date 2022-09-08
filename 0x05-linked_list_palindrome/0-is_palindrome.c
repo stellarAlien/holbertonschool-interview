@@ -1,31 +1,36 @@
 #include "lists.h"
-#define ARRAY_SIZE 2048
 /**
- * is_palindrome - function that checks if a singly linked list is a palindrome
- * @head: Pointer to the head of the list
- * Return: 1 if it is palindrome or 0 if not
+ * is_palindrome - checks if linked list is palindrome
+ *
+ * @head: pointer to head of doubly linked list
+ * Return: 1 if palindromeelse 0
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *n = *head;
-	int array[ARRAY_SIZE];
-	int i = 0, j = 0, mid = 0;
+	listint_t *n;
+	listint_t *s, *t; /*top of stack and stack itself*/
 
-	if (head == NULL || (n != NULL && n->next == NULL))
+	if (!head)
 		return (1);
-	while (n != NULL)
+	n = *head;
+	n = n->next;
+	s = *head;
+	/*will use the linked list struct as a stack*/
+	while (n)
 	{
-		array[i] = n->n;
+		t = malloc(sizeof(listint_t));
+		t->n = n->n;
+		t->next = s;
+		s = t;
 		n = n->next;
-		i++;
 	}
-	i--;
-	mid = i / 2;
-	for (; i >= mid && j <= mid; i--, j++)
+	n = *head;
+	while (n->next)
 	{
-		if (array[j] != array[i])
+		if (n->n != s->n)
 			return (0);
-		i--, j++;
+		n = n->next;
+		s = s->next;
 	}
 	return (1);
 }
