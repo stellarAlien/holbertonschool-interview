@@ -20,7 +20,7 @@ total_size = 0
 n = 0
 try:
     for line in sys.stdin:
-        data = line.split()
+        data = line.split(" ")
         if len(data) > 2:
             status = data[-2]
             file_size = int(data[-1])
@@ -34,7 +34,7 @@ try:
                 # ictionaries preserve ordering
                 # i.e no need for sorting
                 # STATUS =  dict(sort(STATUS.items(), key=lambda item:item[0]))
-                for key, value in STATUS.items():
+                for key, value in sorted(STATUS.items()):
                     if value != 0:
                         print("{}: {:d}".format(key, value))
                 n = 0
@@ -42,6 +42,6 @@ except KeyboardInterrupt:
     pass
 finally:
     print("File size: {}".format(total_size))
-    for key, value in STATUS.items():
+    for key, value in sorted(STATUS.items()):
         if value != 0:
             print("{}: {}".format(key, value))
