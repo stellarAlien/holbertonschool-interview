@@ -1,4 +1,6 @@
 #include "lists.h"
+
+
 /**
  *check_cycle - check if linked list has cycle
  *
@@ -13,7 +15,7 @@ int check_cycle(listint_t *list)
 	if (!list)
 		return (0);
 	if (!list->next)
-		return (1);
+		return (0);
 	p = list->next;
 	while (p)
 	{
