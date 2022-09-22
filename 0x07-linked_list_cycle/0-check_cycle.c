@@ -1,7 +1,5 @@
 #include "lists.h"
 
-#define size 1024
-
 /**
  *check_cycle - check if linked list has cycle
  *
@@ -10,12 +8,11 @@
  */
 int check_cycle(listint_t *list)
 {
-	/* heir and tortoise method */
 	listint_t *s, *f;
 
 	s = list;
 	f = list;
-	while (s)
+	while (s && f )
 	{
 		s = s->next;
 		f = f->next->next;
