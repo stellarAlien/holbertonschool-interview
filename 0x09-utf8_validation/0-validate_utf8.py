@@ -1,29 +1,31 @@
-#!/usr/bin/env python3
-'''
-check utf-8 by checking every byte
-'''
+#!/usr/bin/python3
+"""
+0-validate_utf8
+"""
 
 
 def validUTF8(data):
     """
-    check if data is valid utf-8
+    cehck if data is valid utf-8
     """
-    n = 0
-    for i in data:
-        d = format(i, '#010b')[-8:]
-        if n == 0:
-            for b in d:
-                if b == '0':
+    n_bytes = 0
+    for num in data:
+        byte = format(num, '#010b')[-8:]
+        if n_bytes == 0:
+            for bit in byte:
+                if bit == '0':
                     break
-                n += 1
-            if n == 0:  # type 0 is considered valid
+                n_bytes += 1
+            if n_bytes == 0:
                 continue
-            if n == 1 or n > 4:  # starting with 10 is invalid
+            if n_bytes == 1 or n_bytes > 4:
                 return False
-        elif not d[0:1] == '10':  # check if next bytes are of type 1
-            return False
-        n = n - 1
-    if n == 0:  # if  n  next bytes are of Type 1 return True
-        return True
-    else:
-        return False
+        else:
+            if  not byte[0:1] == '10':
+                return False
+        n_bytes -= 1
+    return n_bytes == 0
+
+
+if __name__ == "__main__":
+    validate_utf8 = __import__('0-validate_utf8').validUTF8
