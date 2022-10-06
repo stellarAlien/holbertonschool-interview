@@ -17,7 +17,7 @@ def validUTF8(data):
                     break
                 n_bytes += 1
             if n_bytes == 0:
-                return True
+                continue
             if n_bytes == 1 or n_bytes > 4:
                 return False
         else:
