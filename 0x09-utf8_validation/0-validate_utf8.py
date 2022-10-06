@@ -6,7 +6,7 @@
 
 def validUTF8(data):
     """
-    cehck if data is valid utf-8
+    check if data is valid utf-8
     """
     n_bytes = 0
     for num in data:
@@ -21,7 +21,7 @@ def validUTF8(data):
             if n_bytes == 1 or n_bytes > 4:
                 return False
         else:
-            if not byte[0:1] == '10':
+            if not (byte[0] == '1' and byte[1] == '0'):
                 return False
         n_bytes -= 1
     return n_bytes == 0
