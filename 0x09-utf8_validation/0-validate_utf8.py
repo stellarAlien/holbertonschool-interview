@@ -3,6 +3,7 @@
 check utf-8 by checking every byte
 '''
 
+
 def validUTF8(data):
     """
     check if data is valid utf-8
