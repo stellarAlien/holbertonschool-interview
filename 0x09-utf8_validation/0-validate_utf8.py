@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+'''
+check utf-8 by checking every byte
+'''
 
 def validUTF8(data):
     """
