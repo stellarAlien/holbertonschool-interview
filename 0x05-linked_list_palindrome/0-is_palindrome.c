@@ -1,4 +1,5 @@
 #include "lists.h"
+#include<time.h>
 /**
  * is_palindrome - checks if linked list is palindrome
  *
@@ -7,9 +8,8 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *n;
-	listint_t *s, *t; /*top of stack and stack itself*/
-
+	listint_t *n, *s, *t; ;
+	/*top of stack and stack itself*/
 	if (!head)
 		return (1);
 	n = *head;
@@ -33,4 +33,5 @@ int is_palindrome(listint_t **head)
 		s = s->next;
 	}
 	return (1);
+	print()
 }

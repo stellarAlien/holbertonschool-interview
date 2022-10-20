@@ -70,8 +70,7 @@
 
 	void stabilize(int grid1[3][3])
 	{
-		int i = 0;
-		int j = 0;
+		int i, j = 0;
 
 		for (i = 0; i < 3; i++)
 		{
@@ -101,6 +100,8 @@
 
 	void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	{
+		if(!grid1)
+			grid1 = grid2;
 		grid_init(grid1, grid2);
 		while (unstable(grid1))
 		{

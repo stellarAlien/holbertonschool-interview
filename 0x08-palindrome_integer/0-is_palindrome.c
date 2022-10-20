@@ -1,5 +1,4 @@
 #include "palindrome.h"
-
 /**
  * is_palindrome - checks if int is palindrome
  *
