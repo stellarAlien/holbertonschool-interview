@@ -15,6 +15,7 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 	if (!node)
 	{
 		free(node);
+		return (NULL)
 
 	}
 	node->parent = NULL;
