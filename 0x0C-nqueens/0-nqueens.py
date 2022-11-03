@@ -8,6 +8,7 @@ solution = []
 
 
 def solve_queens(row, n, solution):
+    """solve queens with backtracking"""
     if (row == n):
         print(solution)
     else:
@@ -20,6 +21,7 @@ def solve_queens(row, n, solution):
 
 
 def valid_placement(solution, placement):
+    """cehck if position is valid using symmetry property"""
     for queen in solution:
         if queen[1] == placement[1]:
             return False
