@@ -2,7 +2,7 @@
 """
 print combinations of n-queen
 """
-from sys import argv, exit
+import sys
 
 solution = []
 
@@ -32,16 +32,16 @@ def valid_placement(solution, placement):
 
 if __name__ == "__main__":
     """main"""
-    if len(argv) != 2:
+    if len(sys.argv) != 2:
         print('Usage: nqueens N')
-        exit(1)
+        sys.exit(1)
     try:
-        n = int(argv[1])
+        n = int(sys.argv[1])
     except Exception:
         print('N must be a number')
-        exit(1)
+        sys.exit(1)
     if n < 4:
         print('N must be at least 4')
-        exit(1)
+        sys.exit(1)
 
     solve_queens(0, n, solution)
