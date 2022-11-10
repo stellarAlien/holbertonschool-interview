@@ -32,9 +32,9 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
  */
 avl_t *sort_insert(int *array, int min, int max)
 {
-    avl_t *tree;
+	avl_t *tree;
 	int mid;
-	
+
 	if (min > max)
 		return (NULL);
 
