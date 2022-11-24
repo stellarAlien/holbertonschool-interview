@@ -18,4 +18,3 @@ request(url, (error, response, body) => {
   const characters = JSON.parse(body).characters;
   print_names(characters);
 });
-
