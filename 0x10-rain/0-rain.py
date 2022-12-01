@@ -4,6 +4,9 @@
 
 def rain(walls):
     """calculate volume of water using two pointers"""
+    if not walls or walls == []:
+        return 0
+
     s, d = 0, 0
     for i in walls:
         if not i:
