@@ -2,7 +2,7 @@
 """calculate volume of water using two pointers"""
 
 
-def rain(walls):
+def rain(walls: list[int]) -> int:
     """calculate volume of water using two pointers"""
     if not walls or walls == []:
         return 0
