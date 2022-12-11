@@ -5,24 +5,27 @@
 /**
  * swap - swaps to array values
  *
+ * @array: array to print after swap
  * @x: child
  * @y: parent
+ * @size: size of array
  */
-void swap(int *x, int *y)
+void swap(int *array, int *x, int *y, size_t size)
 {
 	int temp = *x;
 	*x = *y;
 	*y = temp;
+	print_array(array, size);
 }
 
 /**
- * heapify - heapifies an array
+ * heapify - the sift down
  * @array: the array to sort
  * @size: array size
- * @calcsize: array size
+ * @printsize: array size
  * @idx: index of the root
  */
-void heapify(int *array, size_t size, size_t calcsize, int idx)
+void heapify(int *array, size_t size, size_t printsize, int idx)
 {
 	int root = idx;
 	int left = 2 * idx + 1;
@@ -35,9 +38,8 @@ void heapify(int *array, size_t size, size_t calcsize, int idx)
 		root = right;
 	if (root != idx)
 	{
-		swap(&array[idx], &array[root]);
-		print_array(array, calcsize);
-		heapify(array, n, calcsize, root);
+		print_array(array, printsize);
+		heapify(array, n, printsize, root);
 	}
 }
 
@@ -52,10 +54,10 @@ void heap_sort(int *array, size_t size)
 
 	for (i = size / 2 - 1; i >= 0; i--)
 		heapify(array, size, size, i);
+
 	for (i = size - 1; i > 0; i--)
 	{
-		swap(&array[0], &array[i]);
-		print_array(array, size);
+		swap(array, &array[0], &array[i], size);
 		heapify(array, i, size, 0);
 	}
 }
