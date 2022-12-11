@@ -1,29 +1,26 @@
 #include "sort.h"
 
-#include <stddef.h>
 
 /**
- * swap - swaps to array values
+ * swap - swaps parent with node in sift-down way
  *
- * @array: array to print after swap
  * @x: child
  * @y: parent
- * @size: size of array
  */
-void swap(int *array, int *x, int *y, size_t size)
+void swap(int *x, int *y)
 {
 	int temp = *x;
 	*x = *y;
 	*y = temp;
-	print_array(array, size);
 }
 
 /**
- * heapify - the sift down
+ * heapify - heapifies an array
  * @array: the array to sort
  * @size: array size
  * @printsize: array size
  * @idx: index of the root
+ * Return: 1 if n is palindrome, 0 otherwise
  */
 void heapify(int *array, size_t size, size_t printsize, int idx)
 {
@@ -38,15 +35,17 @@ void heapify(int *array, size_t size, size_t printsize, int idx)
 		root = right;
 	if (root != idx)
 	{
+		swap(&array[idx], &array[root]);
 		print_array(array, printsize);
 		heapify(array, n, printsize, root);
 	}
 }
 
 /**
- * heap_sort - sorts an array using heap sort
+ * heap_sort - function that sorts an array using heap sort
  * @array: the array to sort
  * @size: array size
+ * Return: 1 if n is palindrome, 0 otherwise
  */
 void heap_sort(int *array, size_t size)
 {
@@ -54,10 +53,10 @@ void heap_sort(int *array, size_t size)
 
 	for (i = size / 2 - 1; i >= 0; i--)
 		heapify(array, size, size, i);
-
 	for (i = size - 1; i > 0; i--)
 	{
-		swap(array, &array[0], &array[i], size);
+		swap(&array[0], &array[i]);
+		print_array(array, size);
 		heapify(array, i, size, 0);
 	}
 }
