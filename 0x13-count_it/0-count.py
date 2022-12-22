@@ -9,11 +9,13 @@ def count_words(subreddit, word_list, kw_count={}, after=None, word_occ={}):
     if after:
         hot_posts = requests.get('https://reddit.com/r/' + subreddit +
                                  '/hot.json?after=' + after,
-                                 headers={"User-Agent": "hot_scraping_app"})
+                                 headers={"User-Agent": "hot_scraping_app",
+                                          "limit": '100'})
     else:
         hot_posts = requests.get('https://reddit.com/r/' + subreddit +
                                  '/hot.json',
-                                 headers={"User-Agent": "hot_scraping_app"})
+                                 headers={"User-Agent": "hot_scraping_app",
+                                          "limit": '100'})
 
     # Status 404
     if hot_posts.status_code == 404:
