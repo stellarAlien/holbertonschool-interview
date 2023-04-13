@@ -18,8 +18,10 @@ bool regex_helper(const char *str, const char *pattern)
 
 	if (pattern[1] == '*')
 	{
-		return (regex_helper(str, pattern + 2) ||
-		first_match && regex_helper(str + 1, pattern));
+		  return (
+            regex_helper(str, pattern + 2) ||
+            (first_match && regex_helper(str + 1, pattern))
+        );
 	} else
 	{
 		return (first_match && regex_helper(str + 1, pattern + 1));
