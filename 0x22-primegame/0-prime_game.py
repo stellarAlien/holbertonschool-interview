@@ -7,6 +7,9 @@ def isWinner(x, nums):
             if num % i == 0:
                 return False
         return True
+    
+    if x != len(nums):
+        raise ValueError("The number of rounds x must be equal to the length of the nums list.")
 
     maria_wins = 0
     ben_wins = 0
