@@ -1,37 +1,24 @@
 #!/usr/bin/python3
-def is_prime(num):
-    if num < 2:
-        return False
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
-
-
-def remaining_primes(n):
-    primes = []
-    for i in range(2, n + 1):
-        if is_prime(i):
-            primes.append(i)
-    return primes
-
-
 def isWinner(x, nums):
+    def is_prime(num):
+        if num < 2:
+            return False
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                return False
+        return True
+
     maria_wins = 0
     ben_wins = 0
 
     for n in nums:
+        primes = [i for i in range(2, n + 1) if is_prime(i)]
         maria_turn = True
-        primes = remaining_primes(n)
 
-        while len(primes) > 0:
+        while primes:
             prime_to_remove = primes.pop(0)
             primes = [p for p in primes if p % prime_to_remove != 0]
-
-            if maria_turn:
-                maria_turn = False
-            else:
-                maria_turn = True
+            maria_turn = not maria_turn
 
         if maria_turn:
             ben_wins += 1
@@ -44,3 +31,4 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return None
+
