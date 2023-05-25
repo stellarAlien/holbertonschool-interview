@@ -8,22 +8,23 @@ def validUTF8(data):
     """
     check if data is valid utf-8
     """
-    count = 0
-    for c in data:
-            if count == 0:
-                if (c >> 5) == 0b110:
-                    count = 1
-                elif (c >> 4) == 0b1110:
-                    count = 2
-                elif (c >> 3) == 0b11110:
-                    count = 3
-                elif (c >> 7):
-                    return False
-            else:
-                if (c >> 6) != 0b10:
-                    return False
-                count -= 1
-    return count == 0
+    n_bytes = 0
+    for num in data:
+        byte = format(num, '#010b')[-8:]
+        if n_bytes == 0:
+            for bit in byte:
+                if bit == '0':
+                    break
+                n_bytes += 1
+            if n_bytes == 0:
+                continue
+            if n_bytes == 1 or n_bytes > 4:
+                return False
+        else:
+            if not (byte[0] == '1' and byte[1] == '0'):
+                return False
+        n_bytes -= 1
+    return n_bytes == 0
 
 
 if __name__ == "__main__":
